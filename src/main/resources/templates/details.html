@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Film detail</title>
+</head>
+<body>
+<th:block th:insert="~{layout/header}"></th:block>
+
+<main>
+  <div>
+    <h2 th:text="${film.title()}"></h2>
+    <img th:if="${film.picture() != null}" th:src="@{'/images' + ${film.picture()}}"
+    th:alt="${film.title()}">
+    <p>Title : <span th:text="${film.title()}"></span></p>
+    <p>Director : <span th:text="${film.director()}"></span></p>
+    <p>Duration : <span th:text="${film.duration()}"></span></p>
+    <p>Release date : <span th:text="${film.release()}"></span></p>
+    <p>Pitch : <span th:text="${film.pitch()}"></span></p>
+  </div>
+</main>
+
+<th:block th:insert="~{layout/footer}"></th:block>
+</body>
+</html>

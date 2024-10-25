@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Index films</title>
+</head>
+<body>
+<th:block th:insert="~{layout/header}"></th:block>
+
+<main>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Duration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="film : ${films}">
+      <td th:text="${film.id()}"></td>
+      <td th:text="*{film.title()}"></td>
+      <td th:text="*{film.duration()}"></td>
+      <td>
+        <button>
+          <a th:href="@{/films/{id} (id = ${film.id()})}">Details</a>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+
+<th:block th:insert="~{layout/footer}"></th:block>
+</body>
+</html>
